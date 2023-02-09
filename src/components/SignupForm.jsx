@@ -9,9 +9,17 @@ export default function SignupForm() {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        setUser({email, password});
-        navigate('/secret')
+        fetch("http://127.0.0.1:5002/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({email, password}),
+        })
+            .then(res => res.json())
+            .then(response => {
+                setUser(response.user);
+                navigate('/secret')
+            })
+            .catch(err => alert(err.message))
     }
 
     return (
