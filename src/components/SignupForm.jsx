@@ -9,7 +9,9 @@ export default function SignupForm() {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("http://127.0.0.1:5002/signup", {
+
+        // http://127.0.0.1:5002
+        fetch("https://auth-api-jg.web.app/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({email, password}),
