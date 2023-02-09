@@ -5,7 +5,7 @@ import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../App"
 
-export default function SignupForm() {
+export default function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {setUser} = useContext(AuthContext);
@@ -32,7 +32,7 @@ export default function SignupForm() {
         <>
             <form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <p className='text-light'>Please sign-up to enter</p>
+                    <p className='text-light'>Please login to enter</p>
                     <Form.Label>Email &nbsp;</Form.Label>
                     <Form.Control 
                         name="email"
@@ -70,9 +70,9 @@ export default function SignupForm() {
                 variant="outline-light"
                 size="lg" 
                 type="submit"
-                className='mt-3'>Sign Up</Button>
+                className='mt-3'>Login</Button>
 
-            <Link to="/login"><Button variant="outline-light" size="lg" className='mt-3 ms-2'>Already a user? Login here</Button></Link>
+                <Link to="/signup"><Button variant="outline-light" size="lg" className='mt-3 ms-2'>New User? Sign Up here</Button></Link>
             </form>
         </>
     )
