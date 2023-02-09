@@ -12,8 +12,8 @@ export default function SignupForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // http://localhost:3000
         // http://127.0.0.1:5002
+        // https://auth-api-jg.web.app
         fetch("https://auth-api-jg.web.app/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -29,16 +29,16 @@ export default function SignupForm() {
 
     return (
         <>
-            <h2>Sign Up Form</h2>
             <form onSubmit={handleSubmit}>
-
                 <Form.Group>
+                    <p className='text-light'>Please sign-up to enter</p>
                     <Form.Label>Email &nbsp;</Form.Label>
                     <Form.Control 
                         name="email"
+                        value={email}
                         type="email" 
                         placeholder="Enter email" 
-                        value={email}
+                        className="p-2 hover-effect"
                         onChange={e => setEmail(e.target.value)}
                         />
                 {/* <label htmlFor="email">Email &nbsp;
@@ -52,9 +52,10 @@ export default function SignupForm() {
                     <Form.Label>Password &nbsp;</Form.Label>
                     <Form.Control 
                         name="password"
+                        value={password}
                         type="password" 
                         placeholder="Enter Password" 
-                        value={password}
+                        className="p-2 hover-effect"
                         onChange={e => setPassword(e.target.value)}
                         />
                 {/* <label htmlFor="password">Password &nbsp;
@@ -64,7 +65,11 @@ export default function SignupForm() {
                 
                 <br />
 
-                <Button variant="warning" type="submit">Sign Up</Button>
+                <Button 
+                variant="outline-light"
+                size="lg" 
+                type="submit"
+                className='mt-3'>Sign Up</Button>
 
             </form>
         </>
