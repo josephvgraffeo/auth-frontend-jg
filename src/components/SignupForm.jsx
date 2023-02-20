@@ -72,6 +72,8 @@ export default function SignupForm() {
                 type="submit"
                 className='mt-3'>Sign Up</Button>
 
+                <br />
+
             <Link to="/login"><Button variant="outline-light" size="lg" className='mt-3 ms-2'>Already a user? Login here</Button></Link>
             </form>
         </>

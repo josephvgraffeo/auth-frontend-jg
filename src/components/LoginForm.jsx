@@ -15,14 +15,14 @@ export default function LoginForm() {
 
         // http://127.0.0.1:5002
         // https://auth-api-jg.web.app
-        fetch("https://auth-api-jg.web.app/signup", {
+        fetch("https://auth-api-jg.web.app/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({email, password}),
         })
-            .then(res => res.json())
-            .then(response => {
-                setUser(response.user);
+            .then((res) => res.json())
+            .then((user) => {
+                setUser(user);
                 navigate('/secret')
             })
             .catch(err => alert(err.message))
@@ -71,6 +71,8 @@ export default function LoginForm() {
                 size="lg" 
                 type="submit"
                 className='mt-3'>Login</Button>
+
+                <br />
 
                 <Link to="/signup"><Button variant="outline-light" size="lg" className='mt-3 ms-2'>New User? Sign Up here</Button></Link>
             </form>
